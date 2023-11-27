@@ -5,12 +5,12 @@ session_start(); // Iniciar la sesión al principio del script
 include('conexion.php');
 
 // Obtener datos del formulario
-$email = $_POST['email'];
+$user = $_POST['username'];
 $contrasena = $_POST['contrasena'];
 $rol = $_POST['rol'];
 
 // Consulta SQL para verificar las credenciales
-$sql = "SELECT * FROM usuarios WHERE email='$email' AND contrasena='$contrasena' AND rol='$rol'";
+$sql = "SELECT * FROM users WHERE username='$user' AND password='$contrasena' AND rol='$rol'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
